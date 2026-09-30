@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlueHorizon Travel - Places</title>
+  <style>
+    body {
+      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #cce5ff;
+      color: #003366;
+    }
+    header {
+      background: #004080;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      color: #66cc66;
+      font-size: 28px;
+      font-weight: 900;
+      cursor: default;
+    }
+    nav a {
+      color: #cce5ff;
+      margin: 0 12px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #66cc66;
+      text-decoration: underline;
+    }
+    .search-bar input {
+      padding: 7px 15px;
+      border-radius: 20px;
+      border: none;
+      width: 200px;
+      font-size: 14px;
+      outline: none;
+    }
+    main {
+      max-width: 980px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.8rem;
+      text-shadow: 1px 1px 4px #004080;
+    }
+    .place-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 3px solid #66cc66;
+    }
+    .card-content {
+      padding: 15px 18px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-content h3 {
+      margin: 0 0 8px;
+      color: #004d00;
+      font-size: 1.3rem;
+    }
+    .description {
+      font-size: 14px;
+      color: #555;
+      flex-grow: 1;
+    }
+    .stars {
+      color: #ffcc00;
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
+    textarea {
+      resize: vertical;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      font-size: 14px;
+      margin-top: 8px;
+      min-height: 60px;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      background-color: #66cc66;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #4ea64e;
+    }
+    .comments-list {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #444;
+      max-height: 100px;
+      overflow-y: auto;
+      border-top: 1px solid #ccc;
+      padding-top: 8px;
+    }
+    footer {
+      background: #004080;
+      color: #66cc66;
+      padding: 15px 0;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign In - BlueHorizon</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      color: #04396c;
+    }
+    header {
+      background: #1e3c72;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      color: #a8e063;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      cursor: default;
+    }
+    nav a {
+      color: #c2e9fb;
+      margin: 0 15px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #a8e063;
+      text-decoration: underline;
+    }
+    .search-bar {
+      position: relative;
+    }
+    .search-bar input {
+      padding: 7px 15px 7px 35px;
+      border-radius: 25px;
+      border: none;
+      width: 220px;
+      font-size: 14px;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+    .search-bar::before {
+      content: "🔍";
+      position: absolute;
+      left: 10px;
+      top: 7px;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: #f0fff0;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #1e3c72;
+      text-shadow: 1px 1px 3px #073763;
+    }
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #1e3c72;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #165a17;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" alt="BlueHorizon Logo" style="width:36px;height:36px;vertical-align:middle;border-radius:8px;" />
+    <span style="color:#a8e063;font-size:30px;font-weight:900;letter-spacing:1.2px;">BlueHorizon</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:10px;">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('places') }}">Places</a>
+    <a href="{{ url_for('reviews') }}">Reviews ⭐</a>
+    <a href="{{ url_for('todo') }}">What To Do 🎯</a>
+    <a href="{{ url_for('signup') }}">Sign Up 📝</a>
+    <a href="{{ url_for('login') }}">Log In 🔐</a>
+    <div class="profile-icon" title="Your Profile" style="position:static;top:auto;right:auto;z-index:auto;">
+      <a href="{{ url_for('profile') }}" style="display:block;width:40px;height:40px;"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile" style="width:36px;height:36px;border-radius:50%;object-fit:cover;" /></a>
+    </div>
+  </nav>
+  <div class="search-bar">
+    <form action="{{ url_for('search') }}" method="get" style="display:inline;">
+      <input type="text" name="q" placeholder="Search destinations..." required style="padding:7px 15px;border-radius:25px;border:none;width:220px;font-size:14px;outline:none;transition:box-shadow 0.3s;">
+      <button type="submit" style="display:none;">Search</button>
+    </form>
+  </div>
+</header>
+
+
+<main>
+  <h1>Explore Popular Places</h1>
+  <div class="place-cards" id="places-container">
+
+    <!-- Card template -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=60" alt="Paris" />
+      <div class="card-content">
+        <h3>Paris</h3>
+        <div class="stars">★★★★★</div>
+        <div class="description">The city of lights, love, and amazing cuisine.</div>
+        <textarea placeholder="Write your comment..."></textarea>
+        <button onclick="addComment(this)">Add Comment</button>
+        <div class="comments-list"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://acko-cms.ackoassets.com/best_time_to_visit_london_972b0d38a1.png" alt="London" />
+      <div class="card-content">
+        <h3>London</h3>
+        <div class="stars">★★★★★</div>
+        <div class="description">Home to Big Ben, royal palaces, and vibrant culture.</div>
+        <textarea placeholder="Write your comment..."></textarea>
+        <button onclick="addComment(this)">Add Comment</button>
+        <div class="comments-list"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://plus.unsplash.com/premium_photo-1661914240950-b0124f20a5c1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dG9reW98ZW58MHx8MHx8fDA%3D" alt="Tokyo" />
+      <div class="card-content">
+        <h3>Tokyo</h3>
+        <div class="stars">★★★★☆</div>
+        <div class="description">A perfect blend of modern life and traditional beauty.</div>
+        <textarea placeholder="Write your comment..."></textarea>
+        <button onclick="addComment(this)">Add Comment</button>
+        <div class="comments-list"></div>
+      </div>
+    </div>
+
+        <div class="card">
+      <img src="https://turismoroma.it/sites/default/files/Roma%20in%20breve.jpg" alt="London" />
+      <div class="card-content">
+        <h3>rome</h3>
+        <div class="stars">★★★☆☆</div>
+        <div class="description">I find it impressive, the art and architecture and engineering</div>
+        <textarea placeholder="Write your comment..."></textarea>
+        <button onclick="addComment(this)">Add Comment</button>
+        <div class="comments-list"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://media.cntraveller.com/photos/64f4fc5f663208f83a21af16/4:3/w_2668,h_2001,c_limit/New%20York%20City_GettyImages-1347979016.jpg" alt="new york" />
+      <div class="card-content">
+        <h3>new york</h3>
+        <div class="stars">★★★★☆</div>
+        <div class="description">city that never sleeps</div>
+        <textarea placeholder="Write your comment..."></textarea>
+        <button onclick="addComment(this)">Add Comment</button>
+        <div class="comments-list"></div>
+      </div>
+    </div>
+
+       <div class="card">
+      <img src="https://res-1.cloudinary.com/gorealtravel/image/upload/,f_auto,q_auto/v1712673391/production/marketing/city/661521c44979ab01eaee6e26/city_main_image/sagrada-familia-small.webp" alt="Tokyo" />
+      <div class="card-content">
+        <h3>barcelona</h3>
+        <div class="stars">★★★★★</div>
+        <div class="description">vibrant city known for its unique architecture, rich culture, and beautiful beaches, making it a highly recommended travel destination</div>
+        <textarea placeholder="Write your comment..."></textarea>
+        <button onclick="addComment(this)">Add Comment</button>
+        <div class="comments-list"></div>
+      </div>
+    </div>
+
+
+  </div>
+</main>
+
+
+
+<script>
+  function addComment(button) {
+    const card = button.closest('.card-content');
+    const textarea = card.querySelector('textarea');
+    const commentsList = card.querySelector('.comments-list');
+    const text = textarea.value.trim();
+    if (text.length === 0) {
+      alert('Please write a comment first.');
+      return;
+    }
+    const comment = document.createElement('div');
+    comment.textContent = text;
+    commentsList.appendChild(comment);
+    textarea.value = '';
+  }
+</script>
+
+<div style="position: fixed; bottom: 20px; left: 20px; text-align: center; z-index: 1000;">
+  <a href="https://www.tbcbank.ge/" target="_blank" rel="noopener">
+    <img 
+      src="https://e7.pngegg.com/pngimages/911/456/png-clipart-computer-icons-business-others-blue-angle.png" 
+      alt="TBC Logo" 
+      style="width: 48px; height: auto; display: block; margin: 0 auto; 
+             filter: grayscale(100%) brightness(1.2) contrast(1.2) sepia(1) hue-rotate(180deg) saturate(4);">
+  </a>
+  <span style="color: #1a237e; font-size: 16px; font-family: Arial, sans-serif;">TBC Logo</span>
+</div>
+
+</body>
+</html>
+
+<footer>
+  Contact us: travel@bluehorizon.com | +599 91 70 22 | tbilisi.georgia
+</footer>

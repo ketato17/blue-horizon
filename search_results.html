@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search Results - BlueHorizon</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #a1c4fd, #c2e9fb); color: #04396c; }
+    main { max-width: 700px; margin: 50px auto; background: #f0fff0; border-radius: 18px; box-shadow: 0 8px 16px rgba(0,0,0,0.13); padding: 40px 30px; }
+    h1 { text-align: center; color: #1e3c72; margin-bottom: 30px; }
+    .result-block { background: #e3f2fd; border-radius: 12px; padding: 18px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(30,60,114,0.10); }
+    .result-title { font-weight: 700; color: #165a17; font-size: 1.2rem; margin-bottom: 6px; }
+    .result-desc { color: #04396c; }
+    .no-results { color: #bfa800; text-align: center; font-style: italic; }
+    a { color: #1e3c72; text-decoration: underline; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Search Results for "{{ query }}"</h1>
+  {% if results %}
+    {% for r in results %}
+      <div class="result-block">
+        {% set page = r.file.replace('.html', '') %}
+        {% if page == 'index' %}
+          <a href="{{ url_for('home') }}" style="text-decoration:none;color:inherit;">
+            <div class="result-desc">{{ r.snippet }}</div>
+          </a>
+        {% elif page == 'places' %}
+          <a href="{{ url_for('places') }}" style="text-decoration:none;color:inherit;">
+            <div class="result-desc">{{ r.snippet }}</div>
+          </a>
+        {% elif page == 'reviews' %}
+          <a href="{{ url_for('reviews') }}" style="text-decoration:none;color:inherit;">
+            <div class="result-desc">{{ r.snippet }}</div>
+          </a>
+        {% elif page == 'todo' %}
+          <a href="{{ url_for('todo') }}" style="text-decoration:none;color:inherit;">
+            <div class="result-desc">{{ r.snippet }}</div>
+          </a>
+        {% elif page == 'profile' %}
+          <a href="{{ url_for('profile') }}" style="text-decoration:none;color:inherit;">
+            <div class="result-desc">{{ r.snippet }}</div>
+          </a>
+        {% elif page == 'signup' %}
+          <a href="{{ url_for('signup') }}" style="text-decoration:none;color:inherit;">
+            <div class="result-desc">{{ r.snippet }}</div>
+          </a>
+        {% elif page == 'login' %}
+          <a href="{{ url_for('login') }}" style="text-decoration:none;color:inherit;">
+            <div class="result-desc">{{ r.snippet }}</div>
+          </a>
+        {% else %}
+          <div class="result-desc">{{ r.snippet }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="no-results">No results found.</div>
+  {% endif %}
+  <div style="text-align:center;margin-top:30px;">
+    <a href="{{ url_for('home') }}">Back to Home</a>
+  </div>
+</main>
+<div style="position: fixed; bottom: 20px; left: 20px; text-align: center; z-index: 1000;">
+  <a href="https://www.tbcbank.ge/" target="_blank" rel="noopener">
+    <img 
+      src="https://e7.pngegg.com/pngimages/911/456/png-clipart-computer-icons-business-others-blue-angle.png" 
+      alt="TBC Logo" 
+      style="width: 48px; height: auto; display: block; margin: 0 auto; 
+             filter: grayscale(100%) brightness(1.2) contrast(1.2) sepia(1) hue-rotate(180deg) saturate(4);">
+  </a>
+  <span style="color: #1a237e; font-size: 16px; font-family: Arial, sans-serif;">TBC Logo</span>
+</div>
+</body>
+</html> 

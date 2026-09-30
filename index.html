@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlueHorizon Travel - Home</title>
+  <style>
+    body {
+      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      color: #04396c;
+    }
+    header {
+      background: #1e3c72;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      color: #a8e063;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      cursor: default;
+    }
+    nav a {
+      color: #c2e9fb;
+      margin: 0 15px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #a8e063;
+      text-decoration: underline;
+    }
+    .search-bar input {
+      padding: 7px 15px;
+      border-radius: 25px;
+      border: none;
+      width: 220px;
+      font-size: 14px;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+    .search-bar input:focus {
+      box-shadow: 0 0 8px #a8e063;
+    }
+    main {
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px #073763;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+      color: #1c3a62;
+    }
+    .cubes-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+    .cube {
+      background: #d9f6d9;
+      border-radius: 15px;
+      width: 180px;
+      height: 180px;
+      box-shadow: 0 6px 12px rgba(24,144,63,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+    .cube img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .cube:hover {
+      transform: translateY(-10px) rotate(2deg);
+      box-shadow: 0 12px 24px rgba(24,144,63,0.7);
+    }
+    .cube h3 {
+      margin: 12px 0 5px;
+      font-weight: 700;
+      color: #165a17;
+    }
+    .cube p {
+      font-size: 14px;
+      padding: 0 8px;
+      color: #2c4d12;
+    }
+    footer {
+      background: #1e3c72;
+      color: #a8e063;
+      padding: 20px 0;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 60px;
+    }
+    @media(max-width: 650px) {
+      .cubes-container {
+        gap: 15px;
+      }
+      .cube {
+        width: 140px;
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+          <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" alt="BlueHorizon Logo" style="width:36px;height:36px;vertical-align:middle;border-radius:8px;" />
+          <span style="color:#a8e063;font-size:30px;font-weight:900;letter-spacing:1.2px;">BlueHorizon</span>
+        </a>
+        <nav style="display:flex;align-items:center;gap:10px;">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('places') }}">Places</a>
+          <a href="{{ url_for('reviews') }}">Reviews ⭐</a>
+          <a href="{{ url_for('todo') }}">What To Do 🎯</a>
+          <a href="{{ url_for('signup') }}">Sign Up 📝</a>
+          <a href="{{ url_for('login') }}">Log In 🔐</a>
+          <div class="profile-icon" title="Your Profile" style="position:static;top:auto;right:auto;z-index:auto;">
+            <a href="{{ url_for('profile') }}" style="display:block;width:40px;height:40px;"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile" style="width:36px;height:36px;border-radius:50%;object-fit:cover;" /></a>
+          </div>
+        </nav>
+        <div class="search-bar">
+          <form action="{{ url_for('search') }}" method="get" style="display:inline;">
+            <input type="text" name="q" placeholder="Search destinations..." required style="padding:7px 15px;border-radius:25px;border:none;width:220px;font-size:14px;outline:none;transition:box-shadow 0.3s;">
+            <button type="submit" style="display:none;">Search</button>
+          </form>
+        </div>
+      </header>
+
+<main>
+  <h1>Explore The World With BlueHorizon</h1>
+  <p>Your ultimate travel companion! Discover amazing destinations, plan your adventures, and share your stories.</p>
+
+  <div class="cubes-container">
+    <div class="cube" title="Discover France">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=60" alt="France"/>
+      <h3>France</h3>
+      <p>Experience the charm of Paris, vineyards, and beautiful countryside.</p>
+    </div>
+    <div class="cube" title="Discover Japan">
+      <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=400&q=60" alt="Japan"/>
+      <h3>Japan</h3>
+      <p>Explore Tokyo's blend of tradition and futuristic cityscapes.</p>
+    </div>
+    <div class="cube" title="Discover Italy">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=60" alt="Italy"/>
+      <h3>Italy</h3>
+      <p>Enjoy history, art, and delicious Italian cuisine.</p>
+    </div>
+    <div class="cube" title="Discover Australia">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=60" alt="Australia"/>
+      <h3>Australia</h3>
+      <p>Adventure awaits at the Great Barrier Reef and beyond.</p>
+    </div>
+    <div class="cube" title="Discover Brazil">
+      <img src="https://cdn.britannica.com/84/94384-050-CF600F39/UNESCO-World-Heritage-Committee-area-view-statue-2012.jpg" alt="Brazil"/>
+      <h3>Brazil</h3>
+      <p>Dance through the lively culture and gorgeous landscapes.</p>
+    </div>
+    <div class="cube" title="Discover Canada">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=400&q=60" alt="Canada"/>
+      <h3>Canada</h3>
+      <p>Marvel at stunning nature and vibrant cities.</p>
+    </div>
+  </div>
+
+  <!-- Questionnaire Section (moved to bottom, expanded) -->
+  <section style="background: #f0fff0; border-radius: 16px; box-shadow: 0 4px 12px rgba(30,60,114,0.10); max-width: 600px; margin: 40px auto 0; padding: 30px 20px;">
+    <h2 style="color: #1e3c72; margin-bottom: 18px;">Where Should You Travel?</h2>
+    <form id="travel-quiz" style="display: flex; flex-direction: column; gap: 18px;">
+      <label style="font-weight: 600; color: #04396c;">Preferred Climate:
+        <select name="climate" style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #a1c4fd;">
+          <option value="warm">Warm & Sunny</option>
+          <option value="cool">Cool & Mountainous</option>
+          <option value="tropical">Tropical</option>
+          <option value="snowy">Snowy</option>
+        </select>
+      </label>
+      <label style="font-weight: 600; color: #04396c;">Favorite Activity:
+        <select name="activity" style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #a1c4fd;">
+          <option value="sightseeing">Sightseeing</option>
+          <option value="beach">Beach & Relax</option>
+          <option value="adventure">Adventure Sports</option>
+          <option value="culture">Food & Culture</option>
+        </select>
+      </label>
+      <label style="font-weight: 600; color: #04396c;">Budget:
+        <select name="budget" style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #a1c4fd;">
+          <option value="luxury">Luxury</option>
+          <option value="mid">Mid-range</option>
+          <option value="budget">Budget</option>
+        </select>
+      </label>
+      <label style="font-weight: 600; color: #04396c;">Travel Group:
+        <select name="group" style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #a1c4fd;">
+          <option value="solo">Solo</option>
+          <option value="couple">Couple</option>
+          <option value="family">Family</option>
+          <option value="friends">Friends</option>
+        </select>
+      </label>
+      <label style="font-weight: 600; color: #04396c;">Trip Duration:
+        <select name="duration" style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #a1c4fd;">
+          <option value="weekend">Weekend</option>
+          <option value="week">1 Week</option>
+          <option value="two-weeks">2 Weeks</option>
+          <option value="month">1 Month+</option>
+        </select>
+      </label>
+      <button type="button" onclick="suggestDestination()" style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border: none; background-color: #1e3c72; color: white; border-radius: 8px; cursor: pointer; font-weight: 700;">Find My Destination</button>
+    </form>
+    <div id="quiz-result" style="margin-top: 22px; font-size: 1.2rem; color: #165a17; font-weight: 700;"></div>
+  </section>
+  <!-- End Questionnaire Section -->
+
+</main>
+<footer>
+  Contact us: travel@bluehorizon.com | +599 91 70 22 | <tbilisi class="georgia"></tbilisi>
+  <div style="position: fixed; bottom: 20px; left: 20px; text-align: center; z-index: 1000;">
+  <a href="https://www.tbcbank.ge/" target="_blank" rel="noopener">
+    <img 
+      src="https://e7.pngegg.com/pngimages/911/456/png-clipart-computer-icons-business-others-blue-angle.png" 
+      alt="TBC Logo" 
+      style="width: 48px; height: auto; display: block; margin: 0 auto; 
+             filter: grayscale(100%) brightness(1.2) contrast(1.2) sepia(1) hue-rotate(180deg) saturate(4);">
+  </a>
+  <span style="color: #1a237e; font-size: 16px; font-family: Arial, sans-serif;">TBC Logo</span>
+</div>
+
+</body>
+</html>
+</footer>
+
+<script>
+function suggestDestination() {
+  const form = document.getElementById('travel-quiz');
+  const answers = {
+    climate: form.climate.value,
+    activity: form.activity.value,
+    budget: form.budget.value,
+    group: form.group.value,
+    duration: form.duration.value
+  };
+  // Simple rules for 7 destinations
+  let place = '';
+  if (answers.climate === 'warm' && answers.activity === 'beach') place = 'Australia';
+  else if (answers.climate === 'tropical' && answers.activity === 'adventure') place = 'Brazil';
+  else if (answers.climate === 'cool' && answers.activity === 'sightseeing') place = 'Canada';
+  else if (answers.climate === 'warm' && answers.activity === 'culture') place = 'Italy';
+  else if (answers.climate === 'snowy') place = 'France';
+  else if (answers.activity === 'adventure' && answers.budget === 'budget') place = 'Thailand';
+  else if (answers.activity === 'culture' && answers.group === 'solo') place = 'Japan';
+  else place = 'Spain';
+  document.getElementById('quiz-result').textContent = `We recommend you visit: ${place}!`;
+}
+</script>
+<!-- <div style="position: fixed; bottom: 20px; left: 20px; text-align: center; z-index: 1000;">
+  <a href="https://www.tbcbank.ge/" target="_blank" rel="noopener">
+    <img src="../static/images/თიბისი.png" alt="TBC Logo" >
+    <span style="color: #1a237e; font-size: 16px; font-family: Arial, sans-serif;">TBC Logo</span>
+  </a>
+</div> -->
+</body>
+</html> 
+
+<!-- <a href="https://www.tbcbank.ge/"> <img src="../static/images/თიბისი.png" ></a> -->
+
+<!-- style="width: 48px; height: auto; display: block; margin: 0 auto;" -->

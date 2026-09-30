@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Log In - BlueHorizon</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      color: #04396c;
+    }
+    header {
+      background: #1e3c72;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      color: #a8e063;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      cursor: default;
+    }
+    nav a {
+      color: #c2e9fb;
+      margin: 0 15px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #a8e063;
+      text-decoration: underline;
+    }
+    .search-bar {
+      position: relative;
+    }
+    .search-bar input {
+      padding: 7px 15px 7px 35px;
+      border-radius: 25px;
+      border: none;
+      width: 220px;
+      font-size: 14px;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+    .search-bar::before {
+      content: "🔍";
+      position: absolute;
+      left: 10px;
+      top: 7px;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: #f0fff0;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #1e3c72;
+      text-shadow: 1px 1px 3px #073763;
+    }
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #1e3c72;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #165a17;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" alt="BlueHorizon Logo" style="width:36px;height:36px;vertical-align:middle;border-radius:8px;" />
+    <span style="color:#a8e063;font-size:30px;font-weight:900;letter-spacing:1.2px;">BlueHorizon</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:10px;">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('places') }}">Places</a>
+    <a href="{{ url_for('reviews') }}">Reviews ⭐</a>
+    <a href="{{ url_for('todo') }}">What To Do 🎯</a>
+    <a href="{{ url_for('signup') }}">Sign Up 📝</a>
+    <a href="{{ url_for('login') }}">Log In 🔐</a>
+    <a href="{{ url_for('profile') }}" style="display:block;width:40px;height:40px;"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile" style="width:36px;height:36px;border-radius:50%;object-fit:cover;" /></a>
+  </nav>
+  <div class="search-bar">
+    <form action="{{ url_for('search') }}" method="get" style="display:inline;">
+      <input type="text" name="q" placeholder="Search destinations..." required style="padding:7px 15px;border-radius:25px;border:none;width:220px;font-size:14px;outline:none;transition:box-shadow 0.3s;">
+      <button type="submit" style="display:none;">Search</button>
+    </form>
+  </div>
+</header>
+
+<div class="container">
+  <h2>🔐 Log In</h2>
+  <form method="post" action="{{ url_for('login') }}">
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <button type="submit">Log In</button>
+  </form>
+</div>
+
+<div style="position: fixed; bottom: 20px; left: 20px; text-align: center; z-index: 1000;">
+  <a href="https://www.tbcbank.ge/" target="_blank" rel="noopener">
+    <img 
+      src="https://e7.pngegg.com/pngimages/911/456/png-clipart-computer-icons-business-others-blue-angle.png" 
+      alt="TBC Logo" 
+      style="width: 48px; height: auto; display: block; margin: 0 auto; 
+             filter: grayscale(100%) brightness(1.2) contrast(1.2) sepia(1) hue-rotate(180deg) saturate(4);">
+  </a>
+  <span style="color: #1a237e; font-size: 16px; font-family: Arial, sans-serif;">TBC Logo</span>
+</div>
+
+</body>
+</html>
